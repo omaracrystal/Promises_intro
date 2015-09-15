@@ -22,7 +22,7 @@ router.post('/users', function(req, res, next) {
   newUser = new User({
     name: req.body.name
     });
-  newUser.saveQ(function(err, data){
+  newUser.save(function(err, data){
     if(err){
       res.json({'message': err});
     } else {
