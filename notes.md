@@ -12,6 +12,7 @@ var mongoose = require('mongoose-q')(require('mongoose'), {spread:true});
 3. **Comparison**
 What we have been doing:
 ```
+//get all users
 router.get('/users', function(req, res, next) {
   User.find(function(err, data){
     if(err){
@@ -25,10 +26,11 @@ router.get('/users', function(req, res, next) {
 **What is becomes:**
 
 ```
+//get all users
 router.get('/users', function(req, res, next) {
   User.findQ()
-    .then(function (result) { res.json(result) })
-    .catch(function (err) {res.send(err) })
+    .then(function (data) { res.json(data) })
+    .catch(function (err) { res.send(err) })
     .done();
 });
 ```
